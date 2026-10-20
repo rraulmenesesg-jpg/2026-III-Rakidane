@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import (
-    EstadoInscripcionListView, TipoActividadListView, TipoRecursoListView,
+    EstadoInscripcionListView, EstadoInscripcionDetailView, EstadoInscripcionCreateView, EstadoInscripcionUpdateView, EstadoInscripcionDeleteView,
+    TipoActividadListView, TipoActividadDetailView, TipoActividadCreateView, TipoActividadUpdateView, TipoActividadDeleteView,
+    TipoRecursoListView, TipoRecursoDetailView, TipoRecursoCreateView, TipoRecursoUpdateView, TipoRecursoDeleteView,
     ProgramaNivelListView, ProgramaNivelDetailView, ProgramaNivelCreateView, ProgramaNivelUpdateView, ProgramaNivelDeleteView,
     GrupoSeccionListView, GrupoSeccionDetailView, GrupoSeccionCreateView, GrupoSeccionUpdateView, GrupoSeccionDeleteView,
     CursoMateriaListView, CursoMateriaDetailView, CursoMateriaCreateView, CursoMateriaUpdateView, CursoMateriaDeleteView,
@@ -11,11 +13,29 @@ from .views import (
 )
 
 urlpatterns = [
-    # Catálogos
+    # --- Catálogos ---
+    # EstadoInscripcion
     path('estados-inscripcion/', EstadoInscripcionListView.as_view(), name='estadoinscripcion_list'),
-    path('tipos-actividad/', TipoActividadListView.as_view(), name='tipoactividad_list'),
-    path('tipos-recurso/', TipoRecursoListView.as_view(), name='tiporecurso_list'),
+    path('estados-inscripcion/<uuid:pk>/', EstadoInscripcionDetailView.as_view(), name='estadoinscripcion_detail'),
+    path('estados-inscripcion/create/', EstadoInscripcionCreateView.as_view(), name='estadoinscripcion_create'),
+    path('estados-inscripcion/<uuid:pk>/update/', EstadoInscripcionUpdateView.as_view(), name='estadoinscripcion_update'),
+    path('estados-inscripcion/<uuid:pk>/delete/', EstadoInscripcionDeleteView.as_view(), name='estadoinscripcion_delete'),
 
+    # TipoActividad
+    path('tipos-actividad/', TipoActividadListView.as_view(), name='tipoactividad_list'),
+    path('tipos-actividad/<uuid:pk>/', TipoActividadDetailView.as_view(), name='tipoactividad_detail'),
+    path('tipos-actividad/create/', TipoActividadCreateView.as_view(), name='tipoactividad_create'),
+    path('tipos-actividad/<uuid:pk>/update/', TipoActividadUpdateView.as_view(), name='tipoactividad_update'),
+    path('tipos-actividad/<uuid:pk>/delete/', TipoActividadDeleteView.as_view(), name='tipoactividad_delete'),
+
+    # TipoRecurso
+    path('tipos-recurso/', TipoRecursoListView.as_view(), name='tiporecurso_list'),
+    path('tipos-recurso/<uuid:pk>/', TipoRecursoDetailView.as_view(), name='tiporecurso_detail'),
+    path('tipos-recurso/create/', TipoRecursoCreateView.as_view(), name='tiporecurso_create'),
+    path('tipos-recurso/<uuid:pk>/update/', TipoRecursoUpdateView.as_view(), name='tiporecurso_update'),
+    path('tipos-recurso/<uuid:pk>/delete/', TipoRecursoDeleteView.as_view(), name='tiporecurso_delete'),
+
+    # --- Tablas principales ---
     # ProgramaNivel
     path('programas/', ProgramaNivelListView.as_view(), name='programanivel_list'),
     path('programas/<uuid:pk>/', ProgramaNivelDetailView.as_view(), name='programanivel_detail'),

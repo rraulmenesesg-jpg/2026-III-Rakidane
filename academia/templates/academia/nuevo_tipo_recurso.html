@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo Tipo de Recurso{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="bi bi-paperclip me-2"></i>Registrar nuevo Tipo de Recurso</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% include "academia/_form_fields.html" %}
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{% url 'tiporecurso_list' %}" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-success"><i class="bi bi-check-circle me-1"></i> Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

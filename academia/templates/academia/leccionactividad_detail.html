@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Lección / Actividad{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-pencil-square me-2"></i>{{ object }}</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Título:</dt>
+                    <dd class="col-sm-8">{{ object.titulo }}</dd>
+
+                    <dt class="col-sm-4">Unidad:</dt>
+                    <dd class="col-sm-8">{{ object.id_unidad }}</dd>
+
+                    <dt class="col-sm-4">Tipo de actividad:</dt>
+                    <dd class="col-sm-8">{{ object.id_tipo_actividad|default:"Sin tipo" }}</dd>
+
+                    <dt class="col-sm-4">Instrucciones:</dt>
+                    <dd class="col-sm-8">{{ object.descripcion_instrucciones|default:"Sin instrucciones"|linebreaksbr }}</dd>
+
+                    <dt class="col-sm-4">Puntaje máximo:</dt>
+                    <dd class="col-sm-8">{{ object.puntaje_maximo }}</dd>
+
+                    <dt class="col-sm-4">Fecha de apertura:</dt>
+                    <dd class="col-sm-8">{{ object.fecha_apertura|date:"d/m/Y H:i"|default:"Sin fecha" }}</dd>
+
+                    <dt class="col-sm-4">Fecha límite:</dt>
+                    <dd class="col-sm-8">{{ object.fecha_limite|date:"d/m/Y H:i"|default:"Sin fecha" }}</dd>
+
+                    <dt class="col-sm-4">Estado de publicación:</dt>
+                    <dd class="col-sm-8">{{ object.estado_publicacion }}</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <a href="{% url 'leccionactividad_list' %}" class="btn btn-secondary">Regresar</a>
+                <div>
+                    <a href="{% url 'leccionactividad_update' object.pk %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'leccionactividad_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

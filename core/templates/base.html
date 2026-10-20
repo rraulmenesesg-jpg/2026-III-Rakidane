@@ -86,7 +86,18 @@
                             <i class="bi bi-journal-bookmark-fill me-1"></i> Academia
                         </a>
                         <ul class="dropdown-menu shadow">
-                            <li><a class="dropdown-item" href="/academia/planes_estudio/"><i class="bi bi-journal-text me-2"></i>Planes de Estudio</a></li>
+                            <li><a class="dropdown-item" href="{% url 'programanivel_list' %}"><i class="bi bi-diagram-3 me-2"></i>Programas y Niveles</a></li>
+                            <li><a class="dropdown-item" href="{% url 'gruposeccion_list' %}"><i class="bi bi-people me-2"></i>Grupos y Secciones</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cursomateria_list' %}"><i class="bi bi-book me-2"></i>Cursos y Materias</a></li>
+                            <li><a class="dropdown-item" href="{% url 'inscripcioncurso_list' %}"><i class="bi bi-person-plus me-2"></i>Inscripciones</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'unidadacademica_list' %}"><i class="bi bi-layers me-2"></i>Unidades Académicas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'leccionactividad_list' %}"><i class="bi bi-pencil-square me-2"></i>Lecciones y Actividades</a></li>
+                            <li><a class="dropdown-item" href="{% url 'recursomaterial_list' %}"><i class="bi bi-folder2-open me-2"></i>Recursos y Materiales</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'estadoinscripcion_list' %}"><i class="bi bi-card-checklist me-2"></i>Estados de Inscripción</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tipoactividad_list' %}"><i class="bi bi-ui-checks me-2"></i>Tipos de Actividad</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tiporecurso_list' %}"><i class="bi bi-paperclip me-2"></i>Tipos de Recurso</a></li>
                         </ul>
                     </li>
 

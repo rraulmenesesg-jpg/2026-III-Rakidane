@@ -95,6 +95,9 @@ class InscripcionCurso(models.Model):
         db_table = 'inscripcion_curso'
         unique_together = (('id_alumno', 'id_curso'),)
 
+    def __str__(self):
+        return f"{self.id_alumno} → {self.id_curso}"
+
 
 class UnidadAcademica(models.Model):
     id_unidad = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -137,3 +140,6 @@ class RecursoMaterial(models.Model):
 
     class Meta:
         db_table = 'recurso_material'
+
+    def __str__(self):
+        return self.nombre_recurso or self.url_archivo

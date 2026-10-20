@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Inscripción{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-person-plus me-2"></i>{{ object }}</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Alumno:</dt>
+                    <dd class="col-sm-8">{{ object.id_alumno }}</dd>
+
+                    <dt class="col-sm-4">Curso:</dt>
+                    <dd class="col-sm-8">{{ object.id_curso }}</dd>
+
+                    <dt class="col-sm-4">Estado:</dt>
+                    <dd class="col-sm-8">{{ object.id_estado_inscripcion|default:"Sin estado" }}</dd>
+
+                    <dt class="col-sm-4">Progreso:</dt>
+                    <dd class="col-sm-8"><div class="progress" role="progressbar" style="height: 20px;"><div class="progress-bar" style="width: {{ object.progreso_porcentaje|floatformat:0 }}%">{{ object.progreso_porcentaje|floatformat:2 }}%</div></div></dd>
+
+                    <dt class="col-sm-4">Fecha de inscripción:</dt>
+                    <dd class="col-sm-8">{{ object.fecha_inscripcion|date:"d/m/Y H:i" }}</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <a href="{% url 'inscripcioncurso_list' %}" class="btn btn-secondary">Regresar</a>
+                <div>
+                    <a href="{% url 'inscripcioncurso_update' object.pk %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'inscripcioncurso_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

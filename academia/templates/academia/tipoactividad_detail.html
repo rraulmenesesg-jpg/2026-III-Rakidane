@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Tipo de Actividad{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-ui-checks me-2"></i>{{ object }}</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Nombre:</dt>
+                    <dd class="col-sm-8">{{ object.nombre_tipo }}</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <a href="{% url 'tipoactividad_list' %}" class="btn btn-secondary">Regresar</a>
+                <div>
+                    <a href="{% url 'tipoactividad_update' object.pk %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'tipoactividad_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
