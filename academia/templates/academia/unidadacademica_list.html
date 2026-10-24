@@ -5,7 +5,7 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2><i class="bi bi-layers me-2"></i>Unidades Académicas</h2>
-    <a href="{% url 'unidadacademica_create' %}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i> Nueva Unidad Académica</a>
+    {% if perms.academia.add_unidadacademica %}<a href="{% url 'unidadacademica_create' %}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i> Nueva Unidad Académica</a>{% endif %}
 </div>
 
 <div class="card shadow-sm">
@@ -28,8 +28,8 @@
                     <td>{{ obj.id_curso }}</td>
                     <td class="text-end text-nowrap">
                         <a href="{% url 'unidadacademica_detail' obj.pk %}" class="btn btn-sm btn-info text-white">Ver</a>
-                        <a href="{% url 'unidadacademica_update' obj.pk %}" class="btn btn-sm btn-warning">Editar</a>
-                        <a href="{% url 'unidadacademica_delete' obj.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                        {% if perms.academia.change_unidadacademica %}<a href="{% url 'unidadacademica_update' obj.pk %}" class="btn btn-sm btn-warning">Editar</a>{% endif %}
+                        {% if perms.academia.delete_unidadacademica %}<a href="{% url 'unidadacademica_delete' obj.pk %}" class="btn btn-sm btn-danger">Eliminar</a>{% endif %}
                     </td>
                 </tr>
                 {% empty %}

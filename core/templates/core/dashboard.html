@@ -128,6 +128,7 @@
     <!-- MÓDULOS DEL SISTEMA -->
     <div class="row g-4">
         
+        {% if not rol_estudiantil %}
         <!-- MÓDULO 1: USUARIOS -->
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm module-card">
@@ -197,6 +198,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
 
         <!-- MÓDULO 3: ACADEMIA -->
         <div class="col-md-6 col-lg-4">
@@ -214,14 +216,14 @@
                     <p class="card-text text-warm-grey small mb-4">Planes de estudio, asignaturas, materias, grupos y lecciones.</p>
                     
                     <div class="list-group list-group-flush border-0 mt-auto small">
-                        <a href="{% url 'programanivel_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
+                        {% if not rol_estudiantil %}<a href="{% url 'programanivel_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
                             <span><i class="bi bi-journal-text me-2 accent-golden"></i>Planes de Estudio</span>
                             <i class="bi bi-chevron-right text-muted"></i>
-                        </a>
-                        <a href="{% url 'gruposeccion_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
+                        </a>{% endif %}
+                        {% if not rol_estudiantil %}<a href="{% url 'gruposeccion_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
                             <span><i class="bi bi-people me-2 accent-golden"></i>Grupos y Secciones</span>
                             <i class="bi bi-chevron-right text-muted"></i>
-                        </a>
+                        </a>{% endif %}
                         <a href="{% url 'cursomateria_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
                             <span><i class="bi bi-book me-2 accent-golden"></i>Materias y Cursos</span>
                             <i class="bi bi-chevron-right text-muted"></i>
@@ -231,6 +233,7 @@
             </div>
         </div>
 
+        {% if not rol_estudiantil %}
         <!-- MÓDULO 4: EVALUACIÓN -->
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm module-card">
@@ -267,6 +270,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
 
         <!-- MÓDULO 5: COMUNICACIÓN -->
         <div class="col-md-6 col-lg-4">
@@ -288,18 +292,18 @@
                             <span><i class="bi bi-megaphone me-2 accent-golden"></i>Tablón de Anuncios</span>
                             <i class="bi bi-chevron-right text-muted"></i>
                         </a>
-                        <a href="{% url 'registroasistencia_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
+                        {% if not rol_estudiantil %}<a href="{% url 'registroasistencia_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
                             <span><i class="bi bi-calendar-check me-2 accent-golden"></i>Registro de Asistencias</span>
                             <i class="bi bi-chevron-right text-muted"></i>
-                        </a>
-                        <a href="{% url 'alertariesgoia_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
+                        </a>{% endif %}
+                        {% if not rol_estudiantil %}<a href="{% url 'alertariesgoia_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
                             <span><i class="bi bi-shield-exclamation me-2 accent-golden"></i>Alertas de Riesgo IA</span>
                             <i class="bi bi-chevron-right text-muted"></i>
-                        </a>
-                        <a href="{% url 'sugerenciaiasemanal_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
+                        </a>{% endif %}
+                        {% if not rol_estudiantil %}<a href="{% url 'sugerenciaiasemanal_list' %}" class="list-group-item list-group-item-action border-0 px-3 py-2 d-flex justify-content-between align-items-center fw-semibold list-group-item-rakidane">
                             <span><i class="bi bi-lightbulb me-2 accent-golden"></i>Sugerencias Semanales IA</span>
                             <i class="bi bi-chevron-right text-muted"></i>
-                        </a>
+                        </a>{% endif %}
                     </div>
                 </div>
             </div>

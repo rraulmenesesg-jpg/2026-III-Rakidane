@@ -129,6 +129,19 @@
                 </a>
             </li>
 
+            {% if rol_estudiantil %}
+            <div class="sidebar-category">Mi espacio</div>
+            {% if perms.academia.view_cursomateria %}
+            <li>
+                <a href="{% url 'cursomateria_list' %}"><i class="bi bi-book"></i> Cursos y Materias</a>
+            </li>
+            {% endif %}
+            {% if perms.comunicacion.view_publicaciontablon %}
+            <li>
+                <a href="{% url 'publicaciontablon_list' %}"><i class="bi bi-megaphone"></i> Tablón de Anuncios</a>
+            </li>
+            {% endif %}
+            {% else %}
             <div class="sidebar-category">Administración</div>
             <li>
                 <a href="{% url 'alumno_list' %}"><i class="bi bi-mortarboard"></i> Alumnos</a>
@@ -181,6 +194,7 @@
             <li>
                 <a href="{% url 'alertariesgoia_list' %}"><i class="bi bi-shield-exclamation"></i> Alertas de Riesgo</a>
             </li>
+            {% endif %}
         </ul>
     </nav>
 

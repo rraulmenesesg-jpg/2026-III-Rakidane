@@ -5,7 +5,7 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2><i class="bi bi-book me-2"></i>Cursos y Materias</h2>
-    <a href="{% url 'cursomateria_create' %}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i> Nuevo Curso / Materia</a>
+    {% if perms.academia.add_cursomateria %}<a href="{% url 'cursomateria_create' %}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i> Nuevo Curso / Materia</a>{% endif %}
 </div>
 
 <div class="card shadow-sm">
@@ -32,8 +32,8 @@
                     <td>{{ obj.creditos }}</td>
                     <td class="text-end text-nowrap">
                         <a href="{% url 'cursomateria_detail' obj.pk %}" class="btn btn-sm btn-info text-white">Ver</a>
-                        <a href="{% url 'cursomateria_update' obj.pk %}" class="btn btn-sm btn-warning">Editar</a>
-                        <a href="{% url 'cursomateria_delete' obj.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                        {% if perms.academia.change_cursomateria %}<a href="{% url 'cursomateria_update' obj.pk %}" class="btn btn-sm btn-warning">Editar</a>{% endif %}
+                        {% if perms.academia.delete_cursomateria %}<a href="{% url 'cursomateria_delete' obj.pk %}" class="btn btn-sm btn-danger">Eliminar</a>{% endif %}
                     </td>
                 </tr>
                 {% empty %}

@@ -39,8 +39,8 @@
             <div class="card-footer d-flex justify-content-between">
                 <a href="{% url 'leccionactividad_list' %}" class="btn btn-secondary">Regresar</a>
                 <div>
-                    <a href="{% url 'leccionactividad_update' object.pk %}" class="btn btn-warning">Editar</a>
-                    <a href="{% url 'leccionactividad_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
+                    {% if perms.academia.change_leccionactividad %}<a href="{% url 'leccionactividad_update' object.pk %}" class="btn btn-warning">Editar</a>{% endif %}
+                    {% if perms.academia.delete_leccionactividad %}<a href="{% url 'leccionactividad_delete' object.pk %}" class="btn btn-danger">Eliminar</a>{% endif %}
                 </div>
             </div>
         </div>
