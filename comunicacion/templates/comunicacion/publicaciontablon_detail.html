@@ -38,12 +38,12 @@
                         <i class="bi bi-arrow-left me-1"></i> Regresar
                     </a>
                     <div>
-                        {% if perms.comunicacion.change_publicaciontablon %}<a href="{% url 'publicaciontablon_update' object.pk %}" class="btn btn-warning me-2">
+                        <a href="{% url 'publicaciontablon_update' object.pk %}" class="btn btn-warning me-2">
                             <i class="bi bi-pencil me-1"></i> Editar
-                        </a>{% endif %}
-                        {% if perms.comunicacion.delete_publicaciontablon %}<a href="{% url 'publicaciontablon_delete' object.pk %}" class="btn btn-danger">
+                        </a>
+                        <a href="{% url 'publicaciontablon_delete' object.pk %}" class="btn btn-danger">
                             <i class="bi bi-trash me-1"></i> Eliminar
-                        </a>{% endif %}
+                        </a>
                     </div>
                 </div>
             </div>

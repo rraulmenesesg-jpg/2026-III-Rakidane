@@ -184,7 +184,6 @@ class CuentaAccesoCreateView(CreateView):
                 'admin': 'Administrador_Institucion',
                 'docente': 'Docente',
                 'tutor': 'Tutor',
-                'alumno': 'Alumno',
             }
 
             nombre_grupo = mapa_roles.get(nombre_rol_clean)
@@ -251,7 +250,6 @@ class CuentaAccesoUpdateView(UpdateView):
                 'admin': 'Administrador_Institucion',
                 'docente': 'Docente',
                 'tutor': 'Tutor',
-                'alumno': 'Alumno',
             }
 
             nombre_grupo = mapa_roles.get(nombre_rol_clean)

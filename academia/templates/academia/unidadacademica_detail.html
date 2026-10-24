@@ -27,8 +27,8 @@
             <div class="card-footer d-flex justify-content-between">
                 <a href="{% url 'unidadacademica_list' %}" class="btn btn-secondary">Regresar</a>
                 <div>
-                    {% if perms.academia.change_unidadacademica %}<a href="{% url 'unidadacademica_update' object.pk %}" class="btn btn-warning">Editar</a>{% endif %}
-                    {% if perms.academia.delete_unidadacademica %}<a href="{% url 'unidadacademica_delete' object.pk %}" class="btn btn-danger">Eliminar</a>{% endif %}
+                    <a href="{% url 'unidadacademica_update' object.pk %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'unidadacademica_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>
         </div>

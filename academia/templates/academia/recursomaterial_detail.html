@@ -27,8 +27,8 @@
             <div class="card-footer d-flex justify-content-between">
                 <a href="{% url 'recursomaterial_list' %}" class="btn btn-secondary">Regresar</a>
                 <div>
-                    {% if perms.academia.change_recursomaterial %}<a href="{% url 'recursomaterial_update' object.pk %}" class="btn btn-warning">Editar</a>{% endif %}
-                    {% if perms.academia.delete_recursomaterial %}<a href="{% url 'recursomaterial_delete' object.pk %}" class="btn btn-danger">Eliminar</a>{% endif %}
+                    <a href="{% url 'recursomaterial_update' object.pk %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'recursomaterial_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>
         </div>
